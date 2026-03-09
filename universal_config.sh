@@ -835,6 +835,7 @@ do
 		done
 
 		read -r -p "Enter the public key (from [Peer]):"$'\n' PublicKey
+		read -r -p "Enter the preshared key (from [Peer]):"$'\n' PresharedKey
 		read -r -p "Enter Endpoint host without port (Domain or IP) (from [Peer]):"$'\n' EndpointIP
 		read -r -p "Enter Endpoint host port (from [Peer]) [51820]:"$'\n' EndpointPort
 
@@ -985,6 +986,7 @@ do
 		
 		uci set network.@${CONFIG_NAME}[-1].description="${INTERFACE_NAME}_peer"
 		uci set network.@${CONFIG_NAME}[-1].public_key=$PublicKey
+		uci set network.@${CONFIG_NAME}[-1].preshared_key=$PresharedKey
 		uci set network.@${CONFIG_NAME}[-1].endpoint_host=$EndpointIP
 		uci set network.@${CONFIG_NAME}[-1].endpoint_port=$EndpointPort
 		uci set network.@${CONFIG_NAME}[-1].persistent_keepalive='25'
